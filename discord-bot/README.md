@@ -26,7 +26,7 @@ All commands are registered as **slash commands**, so they show up in each serve
    ```
    npm install
    ```
-5. Copy `.env.example` to `.env` and fill in `DISCORD_TOKEN` and `DISCORD_CLIENT_ID` (add `GUILD_ID` too if you want commands to appear instantly in one test server while developing).
+5. Copy `.env.example` to `.env` and fill in `DISCORD_TOKEN` (add `GUILD_ID` too if you want commands to appear instantly in one test server while developing). `DISCORD_CLIENT_ID` defaults to the value in `config/appConfig.json`.
 6. Register the slash commands:
    ```
    npm run deploy
@@ -42,7 +42,7 @@ This project includes a `discloud.config` file already set up for a Node.js bot.
 
 1. Zip the **contents** of this folder (or use the provided zip) — do not include `node_modules` or `.env`, Discloud installs dependencies itself.
 2. On the [Discloud dashboard/bot](https://discloud.com), upload the zip to create your app.
-3. In the Discloud panel, set the environment variables `DISCORD_TOKEN` and `DISCORD_CLIENT_ID` (and `GUILD_ID` if used) under your app's settings — do not commit real tokens into the zip.
+3. In the Discloud panel, set the environment variable `DISCORD_TOKEN` under your app's settings — do not commit real tokens into the zip. `DISCORD_CLIENT_ID` already ships with a default in `config/appConfig.json`; only add it as an env var if you ever need to override it (e.g. reusing this code for a different bot application).
 4. After the app is running, run `node deploy-commands.js` once (via the Discloud terminal, or locally against the same bot) so your slash commands register with Discord.
 
 ## Configuration notes

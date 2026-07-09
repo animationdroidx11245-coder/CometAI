@@ -7,8 +7,13 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const { REST, Routes } = require("discord.js");
+const appConfig = require("./config/appConfig.json");
 
-const { DISCORD_TOKEN, DISCORD_CLIENT_ID, GUILD_ID } = process.env;
+const { DISCORD_TOKEN, GUILD_ID } = process.env;
+// The client/application ID isn't sensitive, so it also ships as a fallback
+// default in config/appConfig.json. Setting DISCORD_CLIENT_ID as an env var
+// (e.g. in Discloud) always overrides this default.
+const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID || appConfig.clientId;
 
 if (!DISCORD_TOKEN || !DISCORD_CLIENT_ID) {
   console.error("Missing DISCORD_TOKEN or DISCORD_CLIENT_ID. Check your .env file.");
