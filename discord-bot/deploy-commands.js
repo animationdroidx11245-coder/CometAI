@@ -8,10 +8,10 @@ const fs = require("fs");
 const path = require("path");
 const { REST, Routes } = require("discord.js");
 
-const { DISCORD_TOKEN, CLIENT_ID, GUILD_ID } = process.env;
+const { DISCORD_TOKEN, DISCORD_CLIENT_ID, GUILD_ID } = process.env;
 
-if (!DISCORD_TOKEN || !CLIENT_ID) {
-  console.error("Missing DISCORD_TOKEN or CLIENT_ID. Check your .env file.");
+if (!DISCORD_TOKEN || !DISCORD_CLIENT_ID) {
+  console.error("Missing DISCORD_TOKEN or DISCORD_CLIENT_ID. Check your .env file.");
   process.exit(1);
 }
 
@@ -29,8 +29,8 @@ const rest = new REST().setToken(DISCORD_TOKEN);
     console.log(`Deploying ${commands.length} slash command(s)...`);
 
     const route = GUILD_ID
-      ? Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID)
-      : Routes.applicationCommands(CLIENT_ID);
+      ? Routes.applicationGuildCommands(DISCORD_CLIENT_ID, GUILD_ID)
+      : Routes.applicationCommands(DISCORD_CLIENT_ID);
 
     await rest.put(route, { body: commands });
 
