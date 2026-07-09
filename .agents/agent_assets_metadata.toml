@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "1jMyNLPULDGq3cOSn3R34"
+uri = "file://discord-mod-bot.zip"
+type = "unspecified"
+title = "Discord Mod & Welcome Bot (Discloud-ready)"
