@@ -6,3 +6,9 @@ id = "1jMyNLPULDGq3cOSn3R34"
 uri = "file://discord-mod-bot.zip"
 type = "unspecified"
 title = "Discord Mod & Welcome Bot (Discloud-ready)"
+
+[[outputs]]
+id = "1sZ5p5liqNysdYMN5_j3u"
+uri = "file://discord-mod-bot-wispbyte.zip"
+type = "unspecified"
+title = "Discord Mod & Welcome Bot (WispByte-ready)"
