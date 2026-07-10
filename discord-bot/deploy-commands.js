@@ -3,7 +3,12 @@
 // add or change a command.
 //
 // Usage: node deploy-commands.js
-require("dotenv").config();
+try {
+  require("dotenv").config();
+} catch {
+  // dotenv is optional; hosting platforms (Discloud, WispByte, etc.) inject
+  // env vars directly without needing a .env file or this package.
+}
 const fs = require("fs");
 const path = require("path");
 const { REST, Routes } = require("discord.js");
